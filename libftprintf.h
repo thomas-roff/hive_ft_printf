@@ -6,7 +6,7 @@
 /*   By: thblack- <thblack-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 13:10:12 by thblack-          #+#    #+#             */
-/*   Updated: 2025/06/22 15:43:00 by thblack-         ###   ########.fr       */
+/*   Updated: 2025/06/23 22:07:16 by thblack-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,27 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdarg.h>
+# include <float.h>
 
-int	ft_printf(const char *format, ...);
+// Custom implementation of library printf function, handling flags cspdiuxX%
+int		ft_printf(const char *format, ...);
+// Writes a hex to standard output, custom charsets are accepted via the hex
+// variable
+int		ft_puthex(unsigned long nbr, const char *hex);
+// Feeds into ft_puthex and allows user to specify whether traditional hex
+// charset is uppercase or lowercase
+int		hexcharset(unsigned long nbr, int isuphex);
+// Feeds into hexcharset and ft_puthex and handles inputs from printf
+int		ft_hex(va_list args, int isuphex, int isptr);
+// Does what it says
+size_t	ft_strlen(const char *s);
+// Writes a character to the standard output
+int		ft_putchar(char c);
+// Writes a string to the standard output
+int		ft_putstr(const char *s);
+// Writes an integer to the standard output
+int		ft_putnbr(int n);
+// Writes an unisgned integer to the standard output
+int		ft_putuin(unsigned int u);
 
 #endif
