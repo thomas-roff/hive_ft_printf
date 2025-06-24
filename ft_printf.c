@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.c                                      :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thblack- <thblack-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 13:17:47 by thblack-          #+#    #+#             */
-/*   Updated: 2025/06/24 13:23:37 by thblack-         ###   ########.fr       */
+/*   Updated: 2025/06/24 16:32:22 by thblack-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	putarg(char c, va_list args)
 {
@@ -43,16 +43,14 @@ int	checkflag(char c, va_list args)
 		|| c == 'u' || c == 'x' || c == 'X')
 		return (putarg(c, args));
 	else
-		return (-1);
+		return (ft_putchar('%'));
 }
 
 int	ft_printf(const char *format, ...)
 {
 	va_list	args;
 	int		count;
-	int		len;
 
-	len = ft_strlen(format);
 	va_start(args, format);
 	count = 0;
 	while (*format)

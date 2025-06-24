@@ -6,11 +6,11 @@
 /*   By: thblack- <thblack-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 15:39:38 by thblack-          #+#    #+#             */
-/*   Updated: 2025/06/23 22:11:42 by thblack-         ###   ########.fr       */
+/*   Updated: 2025/06/24 16:34:38 by thblack-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 #include <stdio.h>
 
 int	main(int argc, char *argv[])
@@ -51,8 +51,18 @@ int	main(int argc, char *argv[])
 	cf = ft_printf("FT_ percent: %%\n");
 	cl = printf("LIB percent: %%\n");
 	ft_printf("RETURNS FT_: %i LIB: %i\n", cf, cl);
-	ft_printf("\n");
+	cf = ft_printf("FT_ minus int: %i\n", -1);
+	cl = printf("LIB minus int: %i\n", -1);
+	ft_printf("RETURNS FT_: %i LIB: %i\n", cf, cl);
+	ft_printf("FT_ minus str: ");
+	cf = ft_printf("-1");
+	printf("\n");
+	printf("LIB minus str: ");
+	cl = printf("-1");
+	printf("\n");
+	ft_printf("RETURNS FT_: %i LIB: %i\n", cf, cl);
 	p = NULL;
+	ft_printf("\n");
 	ft_printf("INVALID DATA TESTS\n");
 	cf = ft_printf("FT_ char: %c\n", -1);
 	cl = printf("LIB char: %c\n", -1);
@@ -80,6 +90,11 @@ int	main(int argc, char *argv[])
 	ft_printf("RETURNS FT_: %i LIB: %i\n", cf, cl);
 	cf = ft_printf("FT_ highhex: %p\n", 4294967296);
 	cl = printf("LIB highhex: %p\n", 4294967296);
+	ft_printf("RETURNS FT_: %i LIB: %i\n", cf, cl);
+	ft_printf("\n");
+	ft_printf("INVALID SPECIFIER TESTS\n");
+	cf = ft_printf("FT_ f: %z\n", -1);
+	cl = printf("LIB f: %z\n", -1);
 	ft_printf("RETURNS FT_: %i LIB: %i\n", cf, cl);
 	return (0);
 }

@@ -6,11 +6,11 @@
 /*   By: thblack- <thblack-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 20:09:13 by thblack-          #+#    #+#             */
-/*   Updated: 2025/06/24 13:05:24 by thblack-         ###   ########.fr       */
+/*   Updated: 2025/06/24 16:32:36 by thblack-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libftprintf.h"
+#include "../ft_printf.h"
 
 int	ft_puthex(unsigned long nbr, const char *hex)
 {

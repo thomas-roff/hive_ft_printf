@@ -6,16 +6,16 @@
 #    By: thblack- <thblack-@student.hive.fi>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/22 13:18:58 by thblack-          #+#    #+#              #
-#    Updated: 2025/06/24 13:24:16 by thblack-         ###   ########.fr        #
+#    Updated: 2025/06/24 16:34:23 by thblack-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-SOURCES = libftprintf.c utils/ft_puthex.c utils/ft_putuin.c \
-			utils/ft_putptr.c utils/libftprintf_utils.c
+SOURCES = ft_printf.c utils/ft_puthex.c utils/ft_putuin.c \
+			utils/ft_putptr.c utils/ft_printf_utils.c
 OBJECTS = $(SOURCES:.c=.o) 
-HEADER = libftprintf.h
+HEADER = ft_printf.h
 NAME = libftprintf.a
 
 ar: $(NAME)

@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thblack- <thblack-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 13:10:12 by thblack-          #+#    #+#             */
-/*   Updated: 2025/06/24 13:23:56 by thblack-         ###   ########.fr       */
+/*   Updated: 2025/06/24 16:36:16 by thblack-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 # include <stdlib.h>
 # include <unistd.h>
@@ -23,11 +23,6 @@ int		ft_printf(const char *format, ...);
 // Writes a hex to standard output, custom charsets are accepted via the hex
 // variable
 int		ft_puthex(unsigned long nbr, const char *hex);
-// Feeds into ft_puthex and allows user to specify whether traditional hex
-// charset is uppercase or lowercase
-// int		hexcharset(unsigned long nbr, int isuphex);
-// Feeds into hexcharset and ft_puthex and handles inputs from printf
-// int		hexhandler(va_list args);
 // Feeds into hexcharset and ft_puthex and handles inputs from printf
 int		ft_putptr(va_list args);
 // Does what it says

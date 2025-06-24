@@ -6,11 +6,11 @@
 /*   By: thblack- <thblack-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 21:05:27 by thblack-          #+#    #+#             */
-/*   Updated: 2025/06/23 21:05:49 by thblack-         ###   ########.fr       */
+/*   Updated: 2025/06/24 16:33:09 by thblack-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libftprintf.h"
+#include "../ft_printf.h"
 
 int	ft_putuin(unsigned int u)
 {

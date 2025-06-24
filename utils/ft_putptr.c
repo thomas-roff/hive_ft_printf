@@ -6,13 +6,13 @@
 /*   By: thblack- <thblack-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 13:04:56 by thblack-          #+#    #+#             */
-/*   Updated: 2025/06/24 13:22:33 by thblack-         ###   ########.fr       */
+/*   Updated: 2025/06/24 16:36:37 by thblack-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libftprintf.h"
+#include "../ft_printf.h"
 
-int ft_putptr(va_list args)
+int	ft_putptr(va_list args)
 {
 	int				count;
 	unsigned long	ptr;
