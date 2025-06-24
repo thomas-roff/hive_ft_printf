@@ -6,7 +6,7 @@
 /*   By: thblack- <thblack-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 13:10:12 by thblack-          #+#    #+#             */
-/*   Updated: 2025/06/23 22:07:16 by thblack-         ###   ########.fr       */
+/*   Updated: 2025/06/24 13:23:56 by thblack-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,11 @@ int		ft_printf(const char *format, ...);
 int		ft_puthex(unsigned long nbr, const char *hex);
 // Feeds into ft_puthex and allows user to specify whether traditional hex
 // charset is uppercase or lowercase
-int		hexcharset(unsigned long nbr, int isuphex);
+// int		hexcharset(unsigned long nbr, int isuphex);
 // Feeds into hexcharset and ft_puthex and handles inputs from printf
-int		ft_hex(va_list args, int isuphex, int isptr);
+// int		hexhandler(va_list args);
+// Feeds into hexcharset and ft_puthex and handles inputs from printf
+int		ft_putptr(va_list args);
 // Does what it says
 size_t	ft_strlen(const char *s);
 // Writes a character to the standard output

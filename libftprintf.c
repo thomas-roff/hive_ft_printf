@@ -6,7 +6,7 @@
 /*   By: thblack- <thblack-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 13:17:47 by thblack-          #+#    #+#             */
-/*   Updated: 2025/06/23 22:07:54 by thblack-         ###   ########.fr       */
+/*   Updated: 2025/06/24 13:23:37 by thblack-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	putarg(char c, va_list args)
 	if (c == 's')
 		count = ft_putstr(va_arg(args, char *));
 	if (c == 'p')
-		count = ft_hex(args, 0, 1);
+		count = ft_putptr(args);
 	if (c == 'd')
 		count = ft_putnbr(va_arg(args, int));
 	if (c == 'i')
@@ -29,9 +29,9 @@ int	putarg(char c, va_list args)
 	if (c == 'u')
 		count = ft_putuin(va_arg(args, unsigned int));
 	if (c == 'x')
-		count = ft_hex(args, 0, 0);
+		count = ft_puthex(va_arg(args, unsigned int), "0123456789abcdef");
 	if (c == 'X')
-		count = ft_hex(args, 1, 0);
+		count = ft_puthex(va_arg(args, unsigned int), "0123456789ABCDEF");
 	return (count);
 }
 
