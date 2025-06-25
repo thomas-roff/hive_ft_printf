@@ -61,10 +61,7 @@ int	ft_printf(const char *format, ...)
 			count += checkflag(*format++, args);
 		}
 		else
-		{
-			count += ft_putchar(*format);
-			format++;
-		}
+			count += ft_putchar(*format++);
 	}
 	va_end(args);
 	return (count);
