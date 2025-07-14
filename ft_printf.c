@@ -6,7 +6,7 @@
 /*   By: thblack- <thblack-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 13:17:47 by thblack-          #+#    #+#             */
-/*   Updated: 2025/06/24 16:32:22 by thblack-         ###   ########.fr       */
+/*   Updated: 2025/07/14 12:55:02 by thblack-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	putarg(char c, va_list args)
 	return (count);
 }
 
-int	checkflag(char c, va_list args)
+int	checkspec(char c, va_list args)
 {
 	if (c == '%')
 		return (ft_putchar(c));
@@ -50,6 +50,7 @@ int	ft_printf(const char *format, ...)
 {
 	va_list	args;
 	int		count;
+	int		temp;
 
 	va_start(args, format);
 	count = 0;
@@ -57,12 +58,15 @@ int	ft_printf(const char *format, ...)
 	{
 		if (*format == '%')
 		{
-			format++;
-			count += checkflag(*format++, args);
+			if (*++format == '\0')
+				return (-1);
+			temp = checkspec(*format++, args);
 		}
 		else
-			count += ft_putchar(*format++);
+			temp = ft_putchar(*format++);
+		if (temp < 0)
+			return (-1);
+		count += temp;
 	}
-	va_end(args);
-	return (count);
+	return (va_end(args), count);
 }

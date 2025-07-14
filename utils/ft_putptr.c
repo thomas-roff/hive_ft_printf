@@ -21,6 +21,10 @@ int	ft_putptr(va_list args)
 	if (!ptr)
 		return (ft_putstr("(nil)"));
 	count = ft_putstr("0x");
+	if (count < 0)
+		return (-1);
 	count += ft_puthex(ptr, "0123456789abcdef");
+	if (count < 0)
+		return (-1);
 	return (count);
 }

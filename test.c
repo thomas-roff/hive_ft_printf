@@ -6,14 +6,14 @@
 /*   By: thblack- <thblack-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 15:39:38 by thblack-          #+#    #+#             */
-/*   Updated: 2025/06/24 16:34:38 by thblack-         ###   ########.fr       */
+/*   Updated: 2025/07/14 12:57:51 by thblack-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
 
-int	main(int argc, char *argv[])
+int	main(void)
 {
 	int		a;
 	void	*p;
@@ -96,5 +96,22 @@ int	main(int argc, char *argv[])
 	cf = ft_printf("FT_ f: %z\n", -1);
 	cl = printf("LIB f: %z\n", -1);
 	ft_printf("RETURNS FT_: %i LIB: %i\n", cf, cl);
+	ft_printf("\n");
+	ft_printf("SINGLE %% TEST\n");
+	cf = ft_printf("%");
+	cl = printf("%");
+	ft_printf("RETURNS FT_: %i LIB: %i\n", cf, cl);
+	ft_printf("\n");
+	ft_printf("LONELY %% TEST\n");
+	cf = ft_printf("I am % here\n");
+	cl = printf("I am % here\n");
+	ft_printf("RETURNS FT_: %i LIB: %i\n", cf, cl);
+	ft_printf("\n");
+	ft_printf("TRAILING %% TEST\n");
+	cf = ft_printf("I am here %");
+	ft_printf("\n");
+	cl = printf("I am here %");
+	printf("\n");
+	printf("RETURNS FT_: %i LIB: %i\n", cf, cl);
 	return (0);
 }

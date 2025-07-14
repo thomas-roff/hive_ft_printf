@@ -25,7 +25,8 @@ size_t	ft_strlen(const char *s)
 
 int	ft_putchar(char c)
 {
-	write(1, &c, 1);
+	if (write(1, &c, 1) < 0)
+		return (-1);
 	return (1);
 }
 
@@ -38,7 +39,8 @@ int	ft_putstr(const char *s)
 	i = 0;
 	while (*s)
 	{
-		write(1, &*s, 1);
+		if (write(1, &*s, 1) < 0)
+			return (-1);
 		s++;
 		i++;
 	}
@@ -51,18 +53,22 @@ int	ft_putnbr(int n)
 
 	if (n == -2147483648)
 	{
-		ft_putstr("-2147483648");
+		if (!ft_putstr("-2147483648"))
+			return (-1);
 		return (11);
 	}
 	count = 0;
 	if (n < 0)
 	{
 		count = ft_putchar('-');
+		if (count < 0)
+			return (-1);
 		n = -n;
 	}
 	if (n > 9)
 		count += ft_putnbr(n / 10);
-	ft_putchar((n % 10) + '0');
+	if (!ft_putchar((n % 10) + '0'))
+		return (-1);
 	count++;
 	return (count);
 }

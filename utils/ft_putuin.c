@@ -19,7 +19,8 @@ int	ft_putuin(unsigned int u)
 	count = 0;
 	if (u > 9)
 		count += ft_putuin(u / 10);
-	ft_putchar((u % 10) + '0');
+	if (!ft_putchar((u % 10) + '0'))
+		return (-1);
 	count++;
 	return (count);
 }

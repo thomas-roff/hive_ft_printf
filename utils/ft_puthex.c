@@ -19,7 +19,8 @@ int	ft_puthex(unsigned long nbr, const char *hex)
 	count = 0;
 	if (nbr >= 16)
 		count += ft_puthex(nbr / 16, hex);
-	ft_putchar(hex[nbr % 16]);
+	if (!ft_putchar(hex[nbr % 16]))
+		return (-1);
 	count++;
 	return (count);
 }
