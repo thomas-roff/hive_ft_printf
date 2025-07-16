@@ -14,13 +14,27 @@
 
 int	ft_puthex(unsigned long nbr, const char *hex)
 {
-	int	count;
+	int		count;
+	int		i;
+	char	*buffer;
 
-	count = 0;
-	if (nbr >= 16)
-		count += ft_puthex(nbr / 16, hex);
-	if (!ft_putchar(hex[nbr % 16]))
+	if (nbr >= 0 && nbr < 16)
+		return (ft_putchar(hex[nbr]));
+	buffer = malloc(sizeof(char) * 8);
+	if (!buffer)
 		return (-1);
-	count++;
+	i = 0;
+	while (nbr > 0)
+	{
+		buffer[i++] = hex[nbr % 16];
+		nbr /= 16;
+	}
+	count = i;
+	while (i > 0)
+	{
+		if (!ft_putchar(buffer[--i]))
+			return (-1);
+	}
+	free(buffer);
 	return (count);
 }

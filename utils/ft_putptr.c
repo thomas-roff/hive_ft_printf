@@ -15,6 +15,7 @@
 int	ft_putptr(va_list args)
 {
 	int				count;
+	int				temp;
 	unsigned long	ptr;
 
 	ptr = (unsigned long)va_arg(args, void *);
@@ -23,8 +24,9 @@ int	ft_putptr(va_list args)
 	count = ft_putstr("0x");
 	if (count < 0)
 		return (-1);
-	count += ft_puthex(ptr, "0123456789abcdef");
-	if (count < 0)
+	temp = ft_puthex(ptr, "0123456789abcdef");
+	if (temp < 0)
 		return (-1);
+	count += temp;
 	return (count);
 }

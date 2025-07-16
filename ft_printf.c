@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int	putarg(char c, va_list args)
+int	ft_putarg(char c, va_list args)
 {
 	int	count;
 
@@ -27,7 +27,7 @@ int	putarg(char c, va_list args)
 	if (c == 'i')
 		count = ft_putnbr(va_arg(args, int));
 	if (c == 'u')
-		count = ft_putuin(va_arg(args, unsigned int));
+		count = ft_putuint(va_arg(args, unsigned int));
 	if (c == 'x')
 		count = ft_puthex(va_arg(args, unsigned int), "0123456789abcdef");
 	if (c == 'X')
@@ -35,15 +35,21 @@ int	putarg(char c, va_list args)
 	return (count);
 }
 
-int	checkspec(char c, va_list args)
+int	ft_checkspec(char c, va_list args)
 {
 	if (c == '%')
 		return (ft_putchar(c));
 	else if (c == 'c' || c == 's' || c == 'p' || c == 'd' || c == 'i'
 		|| c == 'u' || c == 'x' || c == 'X')
-		return (putarg(c, args));
+		return (ft_putarg(c, args));
 	else
-		return (ft_putchar('%'));
+	{
+		if (!ft_putchar('%'))
+			return (-1);
+		if (!ft_putchar(c))
+			return (-1);
+		return (2);
+	}
 }
 
 int	ft_printf(const char *format, ...)
@@ -59,14 +65,18 @@ int	ft_printf(const char *format, ...)
 		if (*format == '%')
 		{
 			if (*++format == '\0')
-				return (-1);
-			temp = checkspec(*format++, args);
+				temp = -1;
+			else
+				temp = ft_checkspec(*format++, args);
 		}
 		else
 			temp = ft_putchar(*format++);
 		if (temp < 0)
-			return (-1);
+			break ;
 		count += temp;
 	}
-	return (va_end(args), count);
+	if (temp < 0)
+		count = -1;
+	va_end(args);
+	return (count);
 }

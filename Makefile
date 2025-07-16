@@ -18,7 +18,7 @@ OBJECTS = $(SOURCES:.c=.o)
 HEADER = ft_printf.h
 NAME = libftprintf.a
 
-ar: $(NAME)
+all: $(NAME)
 
 $(NAME): $(OBJECTS)
 	ar rcs $(NAME) $(OBJECTS)
@@ -32,6 +32,6 @@ clean:
 fclean: clean
 	rm -f $(NAME)
 
-re: fclean ar
+re: fclean all
 
-.PHONY: ar clean fclean re
+.PHONY: all clean fclean re

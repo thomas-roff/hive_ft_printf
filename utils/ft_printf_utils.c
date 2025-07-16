@@ -32,24 +32,47 @@ int	ft_putchar(char c)
 
 int	ft_putstr(const char *s)
 {
-	int	i;
+	int	count;
 
 	if (!s)
 		return (ft_putstr("(null)"));
+	count = ft_strlen(s);
+	if (write(1, s, count) < 0)
+		return (-1);
+	return (count);
+}
+
+int	ft_putuint(unsigned int n)
+{
+	int		count;
+	int		i;
+	char	*buffer;
+
+	if (n >= 0 && n < 10)
+		return (ft_putchar(n + '0'));
+	buffer = malloc(sizeof(char) * 10);
+	if (!buffer)
+		return (-1);
 	i = 0;
-	while (*s)
+	while (n > 0)
 	{
-		if (write(1, &*s, 1) < 0)
-			return (-1);
-		s++;
-		i++;
+		buffer[i++] = (n % 10) + '0';
+		n /= 10;
 	}
-	return (i);
+	count = i;
+	while (i > 0)
+	{
+		if (!ft_putchar(buffer[--i]))
+			return (-1);
+	}
+	free(buffer);
+	return (count);
 }
 
 int	ft_putnbr(int n)
 {
 	int	count;
+	int	temp;
 
 	if (n == -2147483648)
 	{
@@ -60,15 +83,14 @@ int	ft_putnbr(int n)
 	count = 0;
 	if (n < 0)
 	{
-		count = ft_putchar('-');
-		if (count < 0)
+		if (!ft_putchar('-'))
 			return (-1);
 		n = -n;
+		count = 1;
 	}
-	if (n > 9)
-		count += ft_putnbr(n / 10);
-	if (!ft_putchar((n % 10) + '0'))
+	temp = ft_putuint((unsigned int)n);
+	if (temp < 0)
 		return (-1);
-	count++;
+	count += temp;
 	return (count);
 }
