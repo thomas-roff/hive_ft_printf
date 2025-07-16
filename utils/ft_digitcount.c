@@ -1,40 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthex.c                                        :+:      :+:    :+:   */
+/*   ft_digitcount.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thblack- <thblack-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/06/22 20:09:13 by thblack-          #+#    #+#             */
-/*   Updated: 2025/06/24 16:32:36 by thblack-         ###   ########.fr       */
+/*   Created: 2025/07/16 20:43:19 by thblack-          #+#    #+#             */
+/*   Updated: 2025/07/16 20:46:23 by thblack-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int	ft_puthex(unsigned long nbr, const char *hex)
+int	ft_digitcount(unsigned int n, unsigned int base)
 {
-	int		count;
-	int		i;
-	char	*buffer;
+	int	count;
 
-	if (nbr >= 0 && nbr < 16)
-		return (ft_putchar(hex[nbr]));
-	buffer = malloc(sizeof(char) * 16);
-	if (!buffer)
+	if (base == 0)
 		return (-1);
-	i = 0;
-	while (nbr > 0)
+	count = 0;
+	while (n > 0)
 	{
-		buffer[i++] = hex[nbr % 16];
-		nbr /= 16;
+		n /= base;
+		count++;
 	}
-	count = i;
-	while (i > 0)
-	{
-		if (!ft_putchar(buffer[--i]))
-			return (-1);
-	}
-	free(buffer);
 	return (count);
 }

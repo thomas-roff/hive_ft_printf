@@ -6,7 +6,7 @@
 /*   By: thblack- <thblack-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 13:10:12 by thblack-          #+#    #+#             */
-/*   Updated: 2025/06/24 16:36:16 by thblack-         ###   ########.fr       */
+/*   Updated: 2025/07/16 20:47:12 by thblack-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,15 @@ int		ft_putptr(va_list args);
 int		ft_putchar(char c);
 // Writes a string to the standard output
 int		ft_putstr(const char *s);
-// Writes an integer to the standard output
+// Writes an integer to the standard output, this version feeds into putuint
+// for actual writing, putnbr itself handles negative values and MIN_MAX error
 int		ft_putnbr(int n);
 // Writes an unisgned integer to the standard output
 int		ft_putuint(unsigned int u);
 // Does what it says
 size_t	ft_strlen(const char *s);
+// Counts the number of digits in a number [n] when written in base [base]
+// and returns -1 if base is invalid e.g. 0
+int		ft_digitcount(unsigned int n, unsigned int base);
 
 #endif

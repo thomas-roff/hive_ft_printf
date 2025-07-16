@@ -6,7 +6,7 @@
 /*   By: thblack- <thblack-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/23 19:39:54 by thblack-          #+#    #+#             */
-/*   Updated: 2025/06/24 16:33:42 by thblack-         ###   ########.fr       */
+/*   Updated: 2025/07/16 20:43:41 by thblack-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	ft_putuint(unsigned int n)
 
 	if (n >= 0 && n < 10)
 		return (ft_putchar(n + '0'));
-	buffer = malloc(sizeof(char) * 10);
+	buffer = malloc(sizeof(char) * ft_digitcount(n, 10));
 	if (!buffer)
 		return (-1);
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: thblack- <thblack-@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/22 15:39:38 by thblack-          #+#    #+#             */
-/*   Updated: 2025/07/14 12:57:51 by thblack-         ###   ########.fr       */
+/*   Updated: 2025/07/16 20:59:02 by thblack-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	main(void)
 	int		cl;
 
 	p = &a;
-	str = NULL;
 	ft_printf("VALID DATA TESTS\n");
 
 	cf = ft_printf("FT_ char: %c\n", 'c');
@@ -81,8 +80,14 @@ int	main(void)
 	cl = printf("LIB char: %c\n", -1);
 	ft_printf("RETURNS FT_: %i LIB: %i\n", cf, cl);
 
-	cf = ft_printf("FT_ string: %s\n", str);
-	cl = printf("LIB string: %s\n", str);
+	str = NULL;
+	cf = ft_printf("FT_ null string: %s\n", str);
+	cl = printf("LIB null string: %s\n", str);
+	ft_printf("RETURNS FT_: %i LIB: %i\n", cf, cl);
+
+	str = "";
+	cf = ft_printf("FT_ empty string: %s\n", str);
+	cl = printf("LIB empty string: %s\n", str);
 	ft_printf("RETURNS FT_: %i LIB: %i\n", cf, cl);
 
 	cf = ft_printf("FT_ void*: %p\n", p);
