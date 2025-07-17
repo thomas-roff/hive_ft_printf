@@ -18,7 +18,7 @@ int	ft_puthex(unsigned long nbr, const char *hex)
 	int		i;
 	char	*buffer;
 
-	if (nbr >= 0 && nbr < 16)
+	if (nbr < 16)
 		return (ft_putchar(hex[nbr]));
 	buffer = malloc(sizeof(char) * 16);
 	if (!buffer)
@@ -33,8 +33,10 @@ int	ft_puthex(unsigned long nbr, const char *hex)
 	while (i > 0)
 	{
 		if (!ft_putchar(buffer[--i]))
-			return (-1);
+			i = -1;
 	}
+	if (i < 0)
+		count = -1;
 	free(buffer);
 	return (count);
 }

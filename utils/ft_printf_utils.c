@@ -48,7 +48,7 @@ int	ft_putuint(unsigned int n)
 	int		i;
 	char	*buffer;
 
-	if (n >= 0 && n < 10)
+	if (n < 10)
 		return (ft_putchar(n + '0'));
 	buffer = malloc(sizeof(char) * ft_digitcount(n, 10));
 	if (!buffer)
@@ -63,8 +63,10 @@ int	ft_putuint(unsigned int n)
 	while (i > 0)
 	{
 		if (!ft_putchar(buffer[--i]))
-			return (-1);
+			i = -1;
 	}
+	if (i < 0)
+		count = -1;
 	free(buffer);
 	return (count);
 }
